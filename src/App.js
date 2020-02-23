@@ -5,6 +5,7 @@ import Logs from "./Logs";
 import AddLogs from "./AddLogs";
 import AddImage from "./AddImage";
 import GetImage from "./GetImage";
+import UpdateLog from "./UpdateLog";
 
 export default function App() {
   return (
@@ -19,6 +20,8 @@ export default function App() {
       <AddImage />
       <h1>Get Image</h1>
       <GetImage />
+      <h1>Update Log</h1>
+      <UpdateLog />
     </div>
   );
 }
