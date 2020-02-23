@@ -1,2 +1,0 @@
-# firebaseLogs
-Created with CodeSandbox
