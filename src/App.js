@@ -6,10 +6,14 @@ import AddLogs from "./AddLogs";
 import AddImage from "./AddImage";
 import GetImage from "./GetImage";
 import UpdateLog from "./UpdateLog";
+import Cards from "./Cards";
+import StockRecs from "./StockRecs";
 
 export default function App() {
   return (
     <div className="App">
+      <h1>StockRecs</h1>
+      <StockRecs />
       <h1>Login</h1>
       <Login />
       <h1>Get Logs</h1>
@@ -22,6 +26,8 @@ export default function App() {
       <GetImage />
       <h1>Update Log</h1>
       <UpdateLog />
+      <h1>Cards</h1>
+      <Cards />
     </div>
   );
 }
