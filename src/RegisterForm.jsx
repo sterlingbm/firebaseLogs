@@ -13,12 +13,14 @@ import {
 import SentimentButtons from "./SentimentButtons";
 import SelectMileage from "./SelectMileage";
 import { usePosition } from "./usePosition";
+import SendRegister from "./SendRegister";
 
 const LoginForm = () => {
   const [hasError, setErrors] = useState(false);
   const [giphyResonse, setGiphyResponse] = useState({});
   const [emailSelected, setEmailSelected] = useState(true);
   const [textSelected, setTextSelected] = useState(true);
+  const [registerStatus, setRegisterStatus] = useState("Waiting...");
   const { latitude, longitude, timestamp, accuracy, error } = usePosition(
     true,
     { enableHighAccuracy: true }
@@ -63,6 +65,7 @@ const LoginForm = () => {
 
   return (
     <div style={divStyle}>
+      {registerStatus}
       <Grid
         textAlign="center"
         style={{ height: "100vh" }}
@@ -141,7 +144,20 @@ const LoginForm = () => {
                 value={`${latitude} ,${longitude}`}
               />
               <SelectMileage />
-              <Button size="massive" color="red" fluid>
+              <Button
+                size="massive"
+                color="red"
+                fluid
+                onClick={() =>
+                  SendRegister({
+                    registrationType: "email",
+                    latitude: 55,
+                    longitude: 100,
+                    distance: 100,
+                    email: "bonerpro5000@aol.com"
+                  })
+                }
+              >
                 Set Up Notifications
               </Button>
             </Segment>
