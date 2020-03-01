@@ -8,10 +8,10 @@ import GetImage from "./GetImage";
 import UpdateLog from "./UpdateLog";
 import Cards from "./Cards";
 import StockRecs from "./StockRecs";
+import RegisterForm from "./RegisterForm";
+import "semantic-ui-css/semantic.min.css";
 
-export default function App() {
-  return (
-    <div className="App">
+/*
       <h1>StockRecs</h1>
       <StockRecs />
       <h1>Login</h1>
@@ -28,6 +28,16 @@ export default function App() {
       <UpdateLog />
       <h1>Cards</h1>
       <Cards />
+*/
+
+export default function App() {
+  return (
+    <div className="App">
+      <link
+        rel="stylesheet"
+        href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+      />
+      <RegisterForm />
     </div>
   );
 }
