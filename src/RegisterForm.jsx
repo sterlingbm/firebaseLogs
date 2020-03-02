@@ -26,6 +26,17 @@ const LoginForm = () => {
     { enableHighAccuracy: true }
   );
 
+  async function handleSendRegister(params){
+    try {
+      const docRefId = await SendRegister(params)
+      alert('docRefId: ' + JSON.stringify(docRefId));
+      setRegisterStatus(JSON.stringify(docRefId));
+      // docRefId is now available here
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   async function fetchData() {
     const res = await fetch(
       "https://api.giphy.com/v1/gifs/random?tag=zombie&api_key=p6EXnu4Xjh2JCAtrqQpOak5b7D0IRLxW"
@@ -62,6 +73,7 @@ const LoginForm = () => {
       }
     }
   };
+
 
   return (
     <div style={divStyle}>
@@ -149,7 +161,7 @@ const LoginForm = () => {
                 color="red"
                 fluid
                 onClick={() =>
-                  SendRegister({
+                   handleSendRegister({
                     registrationType: "email",
                     latitude: 55,
                     longitude: 100,

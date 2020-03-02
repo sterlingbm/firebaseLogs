@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import firebase from "./firebase";
 
-function SendRegister(props) {
+async function SendRegister(props) {
   alert("in Send register");
   alert(JSON.stringify(props));
   var db = firebase.firestore();
 
   if (props.registrationType === "email") {
-    db.collection("emailAlerts")
+    const docRef = await db.collection("emailAlerts")
       .add({
         email: props.email,
         latitude: props.latitude,
@@ -15,12 +15,8 @@ function SendRegister(props) {
         distance: props.distance,
         status: "active"
       })
-      .then(function(docRef) {
+      alert('In send register: ' + docRef.id);
         return docRef.id;
-      })
-      .catch(function(error) {
-        return "Error adding document: " + error;
-      });
   }
 }
 
